@@ -1,0 +1,34 @@
+
+package Ed13;
+
+public class Celula {
+  private char parentese; //DEFININDO TIPO
+  private Celula antes;
+
+  public Celula(){}
+ 
+  public Celula(char parentese, Celula antes){
+    this.parentese = parentese;
+
+    this.antes = antes; 
+  }
+
+  public char GetDado(){  //PEGAR PARENTESES
+    return this.parentese; //RETORNANDO PARENTESES
+  }
+
+  public void etDsado(char parentese){ //DEFININDO PARENTESES
+    this.parentese = parentese; //RECEBENDO 
+  }
+  
+  public Celula getAnterior(){ //PEGANDO O ANTERIOR
+    return (this.antes); //RETORNANDO ANTERIOR
+  }
+
+  public void setAnterior(Celula antes){  //ANTERIOR RECEBENDO ANTERIOR
+    this.antes = antes;
+  }
+
+  public void setDado(char parentese2) {
+  }
+}
