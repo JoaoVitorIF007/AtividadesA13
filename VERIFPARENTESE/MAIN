@@ -1,0 +1,40 @@
+package Ed13;
+
+public class Main {
+  public static void main(String[] args) {
+    PILHA piAberta = new PILHA(); //PILHA ABERTA 
+    PILHA piFechada = new PILHA(); //PILHA FECHADA
+    int aberta = 0; //DEFININDO TIPOS INICIANDO COM 0 
+    int fechada = 0; 
+    String certo = "";
+
+    
+    String parenteses = "{ [ ( - ] } ("; //VERIFICAR EXPRESSÃO 
+
+    int length = parenteses.length(); //COMPRIMENTO DA EXPRESSÃO
+    for (int i = 0; i < length; i++) {
+      if(parenteses.charAt(i) == '('){ //CASO ABERTO
+        piAberta.push('(');
+        aberta++; //INCREMENTO
+      }
+      else if(parenteses.charAt(i) == ')'){ //CASO FECHADO
+        piFechada.push(')');
+        fechada++;
+      }
+      if (aberta >= fechada) { // SE ABERTO FOR MAIOR OU IGUAL FECHADO ESTARA CORRETO
+        certo = "CORRETA";
+      }
+      else{ // SE FOR MENOR ESTARÁ INCORRETA
+        certo = "ERRADA";
+        break;
+      }
+
+    }
+
+    if (aberta > fechada) { //SE O ABERTO FOR MAIOR QUE O FECHADO
+      certo = "ERRADA";
+    }
+    //INFORMANDO EXPRESSÃO E PUXANDO VALORES DEFINIDOS PELO USUÁRIO
+    System.out.print(certo+": "+ parenteses);
+  }
+}
