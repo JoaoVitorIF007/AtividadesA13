@@ -1,0 +1,62 @@
+package Ed13;
+
+public class PILHA {
+  private Celula top;  //DEFININDO CELULA
+
+  public void push(char parentese){
+    Celula novaCelula = new Celula();
+    novaCelula.setDado(parentese); //DEFININDO PARENTESES
+    novaCelula.setAnterior(this.top); //DEFININDO NOVA CELULA ANTERIOR
+    this.top = novaCelula;
+  }
+  public void pop(){
+    if(!isEmpyt()){ //VERIFICANDO SE ESTÁ VAZIO
+      System.out.println("Retirando elemento da pilha"+ this.top.GetDado()); 
+      this.top = this.top.getAnterior();
+    }else{ //CASO NÃO TENHA NADA A PILHA ESTA VAZIA
+      System.out.println("Pilha vazia!!");
+    }
+  }
+  public boolean isEmpyt(){ //VERIFICANDO VERDADES
+    if (this.top == null) { //SE TOP FOR NULO 
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  public int sizePilha(){ //TAMANHO DA PILHA
+    Celula p; //CELULAR SERÁ P - PILHA
+    p = this.top; // P RECEBENDO TOP
+    int cont = 0; //INICIANDO COM VALOR 0
+    
+    while(p!= null){ //ENQUANTO FOR DIFERENTE DE NULO
+      p = p.getAnterior();
+      cont++;
+    }
+    return cont; //RETORNANDO O CONTA PARENTESES
+  }
+  public Celula top(){
+    if (isEmpyt()) { //SE TTIVER VAZIA
+      System.out.println("Pilha vazia!!");
+      return null;
+    }
+    else{
+      System.out.println("Nome pilha: " +top.GetDado());
+      return this.top;
+    }
+  }
+  public void imprimir(){
+    Celula p;
+    p = this.top;
+    if (isEmpyt()) {
+      System.out.println("Pilha vazia!!!");
+    }
+    else{
+      while (p != null) { // A PILHA SERÁ DIFERENTE DE NULO ENTÃO PEGUE PARENTESES
+        System.out.print(p.GetDado()+ " ");
+        p = p.getAnterior();
+      }
+    }
+  }
+}
